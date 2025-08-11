@@ -1,0 +1,47 @@
+# Byte-compiled files
+__pycache__
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env
+venv
+
+# Distribution / packaging
+*.egg-info
+*.egg
+dist
+build
+
+# Testing
+.pytest_cache
+.coverage
+.tox
+.nox
+
+# IDEs and editors
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Django specific
+*.sqlite3
+
+# Flask specific
+instance
+*.db
+
+# macOS specific
+.DS_Store

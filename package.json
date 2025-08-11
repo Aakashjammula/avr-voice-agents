@@ -1,0 +1,16 @@
+{
+  "name": "avr-voice-agents",
+  "version": "1.2.0",
+  "author": "aakash jammula",
+  "contributors": [],
+  "keywords": ["avr", "avr-voice-agents", "voice-agents", "agents"],
+  "scripts": {
+    "dc:up": "docker compose up -d",
+    "dc:down": "docker compose down",
+    "dc:pull": "docker compose pull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aakashjammula/avr-voice-agents"
+  }
+}
