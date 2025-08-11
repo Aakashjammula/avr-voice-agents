@@ -1,7 +1,6 @@
 # docker-compose.yml
- 
 version: '3.8'
- 
+
 services:
   avr-core:
     image: aakashjammula/avr-core:latest
@@ -15,7 +14,7 @@ services:
       - 5001:5001
     networks:
       - avr
- 
+
   avr-aws-sts:
     image: aakashjammula/avr-aws-sts
     build: ./aws-sts
@@ -27,7 +26,6 @@ services:
     networks:
       - avr
 
- 
   avr-asterisk:
     image: aakashjammula/avr-asterisk:latest
     container_name: avr-asterisk
@@ -45,7 +43,7 @@ services:
       - ./asterisk/conf/ari.conf:/etc/asterisk/my_ari.conf
     networks:
       - avr
- 
+
   avr-ami:
     image: aakashjammula/avr-ami:latest
     platform: linux/x86_64
@@ -61,7 +59,24 @@ services:
       - 6006:6006
     networks:
       - avr
- 
+
+  websocket-server:
+    image: aakashjammula/aws-sts:latest   
+    platform: linux/x86_64
+    container_name: websocket-server
+    restart: always
+    environment:
+      - PORT=8765
+      - AWS_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - BEDROCK_MODEL_ID=${BEDROCK_MODEL_ID}
+      - POLLY_VOICE_ID=${POLLY_VOICE_ID}
+    ports:
+      - 8765:8765
+    networks:
+      - avr
+
 networks:
   avr:
     name: avr

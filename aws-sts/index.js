@@ -23,7 +23,7 @@ const app = express();
 const connectToCustomBot = () => {
   // --- Make sure this is the correct IP address for your Python server of aws-sts.
   // --- If the Python script is running on the SAME machine, use 'ws://localhost:8765'
-  const botUrl = "ws://localhost:8765"; // Replace with your bot's WebSocket URL
+  const botUrl = "ws://websocket-server:8765"; // Replace with your bot's WebSocket URL
   console.log(`Connecting to custom audio bot at ${botUrl}`);
   return new WebSocket(botUrl);
 };
